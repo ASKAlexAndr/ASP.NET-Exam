@@ -60,6 +60,7 @@
   <ItemGroup>
     <Build Include="users.sql" />
     <Build Include="roles.sql" />
+    <Build Include="recipes.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ASPDatabase.refactorlog" />

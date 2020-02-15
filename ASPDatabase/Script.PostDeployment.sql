@@ -4,13 +4,13 @@ USING (VALUES
 ('admin'),
 ('user')
 )
-AS Source([name])
-ON Target.[name] = Source.[name]
+AS Source([Name])
+ON Target.[Name] = Source.[Name]
 WHEN MATCHED THEN
 UPDATE SET
-[name] = Source.[name]
+[Name] = Source.[Name]
 WHEN NOT MATCHED BY TARGET THEN
-INSERT ([name])
-VALUES ([name])
+INSERT ([Name])
+VALUES ([Name])
 WHEN NOT MATCHED BY SOURCE THEN
 DELETE;
