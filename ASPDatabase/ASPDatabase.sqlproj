@@ -61,4 +61,10 @@
     <Build Include="users.sql" />
     <Build Include="roles.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ASPDatabase.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
+  </ItemGroup>
 </Project>
