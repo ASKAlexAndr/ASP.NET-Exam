@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CookbookDB">
+  <DataContextMoniker Name="/CookbookDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6f2c04b3-4cf1-40a3-ad3a-e1e954eb1d8c" absoluteBounds="3.5, 0.875, 2, 1.7708968098958333">
+      <DataClassMoniker Name="/CookbookDBDataContext/users" />
+      <nestedChildShapes>
+        <elementListCompartment Id="15f3d1b4-518f-4c57-8ec3-55e91e5af4e6" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b11b62f-cee3-40f2-82b8-f0683e52ef10" absoluteBounds="0.75, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CookbookDBDataContext/recipes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="271a5368-57a6-4871-80b7-106bc4206ba0" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="12b060d2-cdf6-45bf-b6fd-fab5a6955b47" absoluteBounds="0.75, 1.25, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/CookbookDBDataContext/roles" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5f05cd04-dd94-4afa-9696-150ddc561514" absoluteBounds="0.765, 1.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.84699625651042); (3.5 : 1.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CookbookDBDataContext/roles/roles_users" />
+      <nodes>
+        <classShapeMoniker Id="12b060d2-cdf6-45bf-b6fd-fab5a6955b47" />
+        <classShapeMoniker Id="6f2c04b3-4cf1-40a3-ad3a-e1e954eb1d8c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

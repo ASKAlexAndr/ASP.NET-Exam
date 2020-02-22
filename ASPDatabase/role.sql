@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Role]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(40) NOT NULL, 
+    CONSTRAINT [AK_role_name] UNIQUE ([Name])
+)
+
