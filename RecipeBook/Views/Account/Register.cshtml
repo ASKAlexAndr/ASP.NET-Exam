@@ -1,0 +1,38 @@
+﻿@model RecipeBook.ViewModels.RegisterModel
+
+<h2>Registation</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Login" class="control-label"></label>
+                <input asp-for="Login" class="form-control" />
+                <span asp-validation-for="Login" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Registate" class="btn btn-primary" />
+            </div>
+            <div>
+                <a href="/Account/Login">To Login</a>
+            </div>
+
+        </form>
+    </div>
+</div>

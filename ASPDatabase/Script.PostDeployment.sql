@@ -1,6 +1,5 @@
 ﻿MERGE INTO [Role] AS Target
 USING (VALUES 
-('anonim'),
 ('admin'),
 ('user')
 )

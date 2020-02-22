@@ -58,9 +58,9 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="users.sql" />
-    <Build Include="roles.sql" />
-    <Build Include="recipes.sql" />
+    <Build Include="user.sql" />
+    <Build Include="role.sql" />
+    <Build Include="recipe.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ASPDatabase.refactorlog" />
