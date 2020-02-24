@@ -2,15 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Cookbook.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RecipeBook.Models;
 using Westwind.AspNetCore.LiveReload;
 
 namespace RecipeBook
@@ -27,21 +28,30 @@ namespace RecipeBook
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<DatabaseContext>(options =>
+            
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<IdentityAppContext>();
+            //Auth
+            services.AddDbContext<IdentityAppContext>(options =>
+                options.UseSqlServer(connection));
+            services.AddDbContext<IdentityAppContext>(options =>
                 options.UseSqlServer(connection));
 
-            //Auth
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-               .AddCookie(options => //CookieAuthenticationOptions
+               .AddCookie(options => 
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                     options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
 
-
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+            });
             services.AddControllersWithViews();
         }
 
@@ -63,9 +73,9 @@ namespace RecipeBook
 
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
-
+            app.UseAuthorization();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

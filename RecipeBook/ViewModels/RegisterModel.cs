@@ -8,16 +8,26 @@ namespace RecipeBook.ViewModels
 {
     public class RegisterModel
     {
-        [Required(ErrorMessage = "Не указан логин")]
-        public string Login { get; set; }
+        [Required(ErrorMessage = "Не указан Email")]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
         [Required(ErrorMessage = "Не указано имя")]
-        public string Name { get; set; }
+        [Display(Name = "Имя")]
+        public string FirstName { get; set; }
+
         [Required(ErrorMessage = "Не указана фамилия")]
-        public string Surname { get; set; }
+        [Display(Name = "Фамилия")]
+        public string LastName { get; set; }
 
         [Required(ErrorMessage = "Не указан пароль")]
         [DataType(DataType.Password)]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
+        [Required]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Подтвердить пароль")]
+        public string PasswordConfirm { get; set; }
 
     }
 }

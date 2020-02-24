@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RecipeBook.Models;
@@ -19,27 +20,10 @@ namespace RecipeBook.Controllers
         {
             _logger = logger;
         }
-
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-        [Authorize(Roles = "admin, user")]
         public IActionResult Index()
         {
-            string role = User.FindFirst(x => x.Type == ClaimsIdentity.DefaultRoleClaimType).Value;
-            return View(User);
+            return RedirectToAction("RecipeList", "Recipe");
         }
-        [Authorize(Roles = "admin")]
-        public IActionResult Privacy()
-        {
-            return Content("Вход только для администратора");
-        }
-
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
