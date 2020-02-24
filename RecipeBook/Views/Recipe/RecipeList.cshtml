@@ -13,10 +13,9 @@
         <input name="filterTitle" value="@(Model.FilterTitle)" class="form-control m-1" />
 
         <div class="form-group m-1">
-            <label for="selectSort">Сортировка</label>
             <select name="sortDir" class="form-control">
-                <!option value="asc" @(Model.SortDir == "asc" ? "selected" : "") >А-Я</!option>
-                <!option value="desc" @(Model.SortDir == "desc" ? "selected" : "") >Я-А</!option>
+                <!option value="asc" @(Model.SortDir == "asc" ? "selected" : "")>А-Я</!option>
+                <!option value="desc" @(Model.SortDir == "desc" ? "selected" : "")>Я-А</!option>
             </select>
         </div>
         <input type="submit" value="Поиск" class="btn btn-outline-dark m-1" />
@@ -36,9 +35,10 @@
             }
             <div class="card-body">
                 <h5 class="card-title">@recipe.Title</h5>
-                @*<div class="card-text">@Html.DisplayText(recipe.Description)</div>*@
+            </div>
+            <div class="card-footer">
                 <a class="btn btn-dark" asp-action="Index" asp-route-id="@(recipe.Id)">Подробнее</a>
-</div>
+            </div>
 
 </div>
     }
